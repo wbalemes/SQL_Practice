@@ -1,0 +1,54 @@
+-- (1) Mostrar o banco de dados atual.
+show databases;
+
+-- (2) Mostrar tebelas.
+show tables;
+
+-- (3) Mostrar todos os campos e registros da tabela.
+Select id, nome, estado, sexo from cliente;
+select * from cliente;
+
+-- (4) Mostrar campos especificos para todos
+Select nome, estado from cliente;
+
+-- (5) Mostrar campos especificos para todos ordenado por nome
+Select nome, estado from cliente
+order by nome DESC;
+
+-- (6) Mostrar campos especificos para todos ordenado por estado
+Select nome, estado from cliente
+order by estado asc;
+
+-- (7) Mostrar campos de cliente para o estado MG
+select * from cliente where estado = 'mg';
+
+-- (8) Mostrar qtd total de clientes cadastrados
+-- funçoes de dominio: count(), sum(), average(), max(), min()
+SELECT count(*) from cliente;
+SELECT count(*) as 'Quantidade de cliente na tabela' from cliente;
+
+-- (9) Mostrar qtd de cliente para o estado MG
+select count(*) as 'clientes de MG' from cliente where estado ='mg';
+
+-- (10) Mostrar todos os estados que possuem clientes (distintamente)
+select distinct estado from cliente;
+
+-- (11) Mostrar (em um único comando) a quantidade 
+-- de clientes cadastrados para cada estado.
+select estado, count(*) as 'quantidade' 
+from cliente
+group by estado 
+order by estado;
+
+-- (12) Mostrar todos os clientes com nomes 
+-- iniciados com a letra 'A' (use o comandos Substring).
+select * from cliente where substring(nome,1,1) = 'a';
+
+-- (13) Mostrar todos os clientes com nomes
+-- iniciados com a letra 'A' (use o operador LIKE).
+-- % = tudo que venha depois
+select * from cliente where nome like  'a%';
+
+-- (14) Mostre o campo nome para todos os clientes cadastrados, 
+-- somente as primeiras 3 letras. Use a função LEFT.
+select left(nome,3) from cliente;

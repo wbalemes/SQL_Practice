@@ -1,0 +1,36 @@
+CREATE TABLE Cliente (
+id INT PRIMARY KEY AUTO_INCREMENT ,
+nome VARCHAR(20) NOT NULL,
+estado VARCHAR(2),
+sexo CHAR(1)
+);
+
+insert into Cliente (nome, estado, sexo) values ('Dodolina', 'PR', 'F');
+insert into Cliente (nome, estado, sexo) values ('Juvêncio', 'PR', 'M');
+insert into Cliente (nome, estado, sexo) values ('Heubler', 'SC', 'M');
+insert into Cliente (nome, estado, sexo) values ('Catarindo', 'SC', 'M');
+insert into Cliente (nome, estado, sexo) values ('Zempronia', 'MG', 'F');
+insert into Cliente (nome, estado, sexo) values ('Tunda', 'MG', 'M');
+insert into Cliente (nome, estado, sexo) values ('Mévio', 'MG', 'M');
+insert into Cliente (nome, estado, sexo) values ('Andrelino', 'SP', 'M');
+insert into Cliente (nome, estado, sexo) values ('Walcreusa', 'SP', 'F');
+insert into Cliente (nome, estado, sexo) values ('Afranio', 'SC', 'M');
+insert into Cliente (nome, estado, sexo) values ('Zildanir', 'MG', 'F');
+insert into Cliente (nome, estado, sexo) values ('Warley', 'MG', 'M');
+
+CREATE TABLE Pedido (
+numero INT PRIMARY KEY AUTO_INCREMENT,
+data DATETIME,
+valor DECIMAL(10,2),
+id INT,
+FOREIGN KEY(id) REFERENCES CLIENTE (id)
+);
+
+insert into Pedido (data, valor, id) values (CURDATE(), 50,3);
+insert into Pedido (data, valor, id) values (CURDATE(), 250,3);
+insert into Pedido (data, valor, id) values (CURDATE(), 50,1);
+insert into Pedido (data, valor, id) values (CURDATE(), 50,1);
+insert into Pedido (data, valor, id) values (CURDATE(), 50,1);
+insert into Pedido (data, valor, id) values (CURDATE(), 100,2);
+insert into Pedido (data, valor, id) values (CURDATE(), 100,2);
+insert into Pedido (data, valor, id) values (CURDATE(), 100,2);
